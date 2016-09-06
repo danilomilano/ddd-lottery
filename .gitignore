@@ -1,0 +1,5 @@
+# file list to ignore version control
+target
+.settings
+.project
+.classpath

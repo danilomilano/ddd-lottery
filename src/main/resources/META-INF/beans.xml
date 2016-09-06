@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is required to injection of dependencies in the project -->
+<beans xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+                           http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
+       version="1.1" bean-discovery-mode="all">
+
+	<!-- This alternative is to run the application using the data repository in memory.
+		 Case a new repository be created, we can change the alternative in deployment
+		 tume, putting the repository desired. Is interest to tests, creating different
+		 scenaries. -->       
+	<alternatives>
+        <class>ie.nco.ddd.lottery.infra.repository.TicketRepositoryInMemory</class>
+    </alternatives>
+    
+    <!-- Interceptor to control logging process in system. -->
+    <interceptors>
+        <class>ie.nco.ddd.lottery.infra.logging.TicketLoggerInterceptor</class>
+        <class>ie.nco.ddd.lottery.infra.logging.TicketLoggerExceptionInterceptor</class>
+    </interceptors>
+    
+</beans>
